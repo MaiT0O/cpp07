@@ -4,8 +4,8 @@ template <typename T>
 class Array
 {
     private:
-     T* _array;
-     unsigned int _n;
+          T* _array;
+          unsigned int _n;
     
     public:
      Array() : _array(NULL), _n(0) {}
@@ -35,20 +35,27 @@ class Array
           delete[] _array;
      }
     
-     class exeption : public std::exception {
+     class exception : public std::exception {
           public:
                virtual const char* what() const throw() {
                     return "Index out of bounds";
                }
      };
 
-     T& operator[](unsigned int index) const
+     T& operator[](unsigned int index)
      {
           if (index >= _n)
-               throw Array::exeption();
+               throw exception();
           return _array[index];
      }
-    
+
+     const T& operator[](unsigned int index) const
+     {
+          if (index >= _n)
+               throw exception();
+          return _array[index];
+     }
+
      unsigned int size() const {
           return _n;
      }

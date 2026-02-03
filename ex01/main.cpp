@@ -4,25 +4,27 @@
 
 int main()
 {
-    int intArr[] = {0, 1, 2, 3, 4};
-    size_t intLen = sizeof(intArr) / sizeof(intArr[0]);
-    std::cout << "int array:" << std::endl;
-    iter(intArr, intLen, print<int>);
+    // test avec int
+    int intArray[] = {1, 2, 3, 4, 5};
+    size_t intLen = 5;
 
-    std::string strArr[] = {"hello", "world", "iter"};
-    size_t strLen = sizeof(strArr) / sizeof(strArr[0]);
-    std::cout << "\nstring array:" << std::endl;
-    iter(strArr, strLen, print<std::string>);
+    iter(intArray, intLen, printInt);
+    iter(intArray, intLen, incrementInt);
+    iter(intArray, intLen, printInt);
 
-    char charArr[] = {'a', 'b', 'c', 'd'};
-    size_t charLen = sizeof(charArr) / sizeof(charArr[0]);
-    std::cout << "\nchar array:" << std::endl;
-    iter(charArr, charLen, print<char>);
+    std::cout << "-----" << std::endl;
 
-    double dblArr[] = {1.1, 2.2, 3.3};
-    size_t dblLen = sizeof(dblArr) / sizeof(dblArr[0]);
-    std::cout << "\ndouble array:" << std::endl;
-    iter(dblArr, dblLen, print<double>);
+    const int constIntArray[] = {10, 20, 30};
+    size_t constIntLen = 3;
+
+    iter(constIntArray, constIntLen, printInt);
+
+    std::cout << "-----" << std::endl;
+
+    std::string strArray[] = {"hello", "world", "42"};
+    size_t strLen = 3;
+
+    iter(strArray, strLen, printString);
 
     return 0;
 }

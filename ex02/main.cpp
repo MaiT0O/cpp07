@@ -39,7 +39,7 @@ int main()
 	std::cout << "-- Test out-of-bounds (should catch exception) --" << std::endl;
     try
     {
-        a[10] = 99;
+		a[99] = 5;
     }
     catch(const std::exception& e)
     {

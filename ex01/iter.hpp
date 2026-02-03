@@ -2,14 +2,23 @@
 #include <cstdlib>
 #include <iostream>
 
-template <typename T>
-void print(const T& x)
+void printInt(const int& x)
 {
     std::cout << x << std::endl;
 }
 
-template <typename T>
-void iter(T* array, const size_t length, void (*func)(const T&))
+void incrementInt(int& x)
+{
+    x++;
+}
+
+void printString(const std::string& s)
+{
+    std::cout << s << std::endl;
+}
+
+template <typename T, typename F>
+void iter(T* array, const size_t length, F func)
 {
     for (size_t i = 0; i < length; i++)
     {
